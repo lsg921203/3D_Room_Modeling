@@ -6,6 +6,41 @@ from points4 import Points4
 from perspectiveTransform import perspective
 # 아래있는거 전부 클래스로 변환처리
 
+class object_detection:
+	def __init__(self):
+
+		self.yolo = 'yolo-coco'
+		self.confi = 0.5
+		self.threshold = 0.3
+
+		labelsPath = os.path.sep.join([yolo, "coco.names"])
+		self.LABELS = open(labelsPath).read().strip().split("\n")
+		np.random.seed(42)
+		self.COLORS = np.random.randint(0, 255, size=(len(LABELS), 3),
+								   dtype="uint8")
+
+		weightsPath = os.path.sep.join([yolo, "yolov3.weights"])
+		configPath = os.path.sep.join([yolo, "yolov3.cfg"])
+
+		print("[INFO] loading YOLO from disk...")
+		self.net = cv2.dnn.readNetFromDarknet(configPath, weightsPath)
+
+		self.ln = self.net.getLayerNames()
+		self.ln = [self.ln[i[0] - 1] for i in self.net.getUnconnectedOutLayers()]
+
+	def detect(self,file_name):
+		self.image = cv2.imread(file_name)
+		(self.H, self.W) = self.image.shape[:2]
+		self.blob = cv2.dnn.blobFromImage(self.image, 1 / 255.0, (416, 416),
+									 swapRB=True, crop=False)
+		self.net.setInput(self.blob)
+		start = time.time()
+		self.layerOutputs = net.forward(ln)  # 학습내용을 기반으로 이미지 판단
+		end = time.time()
+		
+		### 여기까지 진행
+
+
 #처리할 이미지 경로
 image = 'images/room1.jpg'
 #다양한 정보가 저장된 폴더 경로
