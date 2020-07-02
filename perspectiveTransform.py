@@ -20,7 +20,7 @@ class perspective:
         #print(self.M)
 
     def warpImage(self,img):
-        res = cv2.warpPerspective(img, self.M, (1100, 1100))
+        res = cv2.warpPerspective(img, self.M, (1500, 1500))
 
         return res
 
@@ -56,14 +56,14 @@ class perspective:
         p4 = points4.get_p4()
         x4, y4 = self.warpPoint(p4[0], p4[1])
 
-        res = Points4(x1=x1, y1=y1,
-                      x2=x2, y2=y2,
-                      x3=x3, y3=y3,
-                      x4=x4, y4=y4)
+        res = Points4(x1=int(x1), y1=int(y1),
+                      x2=int(x2), y2=int(y2),
+                      x3=int(x3), y3=int(y3),
+                      x4=int(x4), y4=int(y4))
 
         return res
 
-
+'''
 p1 = Points4(232,214,538,214,736,394,44,393)
 p2 = Points4(210,210,800,210,800,800,210,800)
 
@@ -77,3 +77,4 @@ P = Points4(300,300,
 PP = pers.warpPoints4(P)
 
 PP.printPoints()
+'''
