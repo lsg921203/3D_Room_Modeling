@@ -17,27 +17,27 @@ class const_3D_room:
         original_size_x = 0
         original_size_y = 0
         if name == "bed":
-            file_name = 'stl_files/bed1.stl'
+            file_name = '../stl_files/bed1.stl'
             original_size_x = 100
             original_size_y = 200
         elif name == "chair":
-            file_name = 'stl_files/chair1.stl'
+            file_name = '../stl_files/chair1.stl'
             original_size_x = 40
             original_size_y = 40
         elif name == "sofa":
-            file_name = 'stl_files/sofa1.stl'
+            file_name = '../stl_files/sofa1.stl'
             original_size_x = 200
             original_size_y = 50
         elif name == "tvmonitor":
-            file_name = 'stl_files/TV.stl'
+            file_name = '../stl_files/TV.stl'
             original_size_x = 120
             original_size_y = 10
         elif name == "person":
-            file_name = 'stl_files/cookie.stl'
+            file_name = '../stl_files/cookie.stl'
             original_size_x = 60
             original_size_y = 30
         elif name == "car":
-            file_name = 'stl_files/car.stl'
+            file_name = '../stl_files/car.stl'
             original_size_x = 60
             original_size_y = 30
         else:
@@ -67,6 +67,8 @@ class const_3D_room:
         scale = np.concatenate([m.points for m in self.meshes]).flatten('K')
         self.axes.auto_scale_xyz(scale, scale, scale)
         pyplot.show()
+
+        #pyplot.close()
 
 
 #test = const_3D_room()

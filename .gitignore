@@ -1,6 +1,6 @@
 venv
-images
+app_main/images
 output
 videos
-yolo-coco
+app_main/yolo-coco
 stl_files

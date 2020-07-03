@@ -1,9 +1,6 @@
-from object_detect_yolo import object_detection
-from perspectiveTransform import perspective
-from points4 import Points4
-from warping_room import Warping_room
-from construct_3D_room import const_3D_room
-import numpy as np
+from app_main.object_detect_yolo import object_detection
+from app_main.warping_room import Warping_room
+from app_main.construct_3D_room import const_3D_room
 import cv2
 import math
 
@@ -71,4 +68,4 @@ def main(dbug, file_name):
     cv2.destroyAllWindows()
 
 
-main(True,"images/crosswalk3.jpg")
+main(True, "images/crosswalk3.jpg")

@@ -5,7 +5,7 @@ from PIL import ImageTk
 import os
 
 def make_image_file_list():
-    folder_name = "../images"
+    folder_name = "images"
     list = os.listdir(folder_name)
     i = 0
 

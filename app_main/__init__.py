@@ -2,5 +2,11 @@ __all__=[
     'main_ui',
     'make_widgets',
     'service',
-    'main_test'
+    'main_test',
+    'construct_3D_room',
+    'main',
+    'object_detect_yolo',
+    'perspectiveTransform',
+    'points4',
+    'warping_room'
 ]

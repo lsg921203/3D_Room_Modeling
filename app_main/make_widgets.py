@@ -2,7 +2,7 @@ import tkinter as tk
 import cv2
 from functools import partial
 import threading
-
+from app_main.service import service
 
 def btn1_clicked(app, event):
     app.image_idx -= 1
@@ -20,10 +20,11 @@ def btn2_clicked(app, event):
 
     app.change_img(image)
 
-def btn3_clicked(app, event):
-    pass
+def btn3_clicked(app, serv, event):
+    serv.const_3D(app, app.image_list[app.image_idx], True)
 
-def make(app, service):
+
+def make(app, serv):
     app.ent = tk.Entry(app.sub_fr, width=60)
     app.ent = tk.Entry(app.sub_fr, width=60)
     app.btn1 = tk.Button(app.sub_fr, width=10, font=60, text='prev')#next
@@ -38,4 +39,4 @@ def make(app, service):
     #app.btn1['command'] = btn1_clicked
     app.btn1.bind('<Button-1>', partial(btn1_clicked, app))
     app.btn2.bind('<Button-1>', partial(btn2_clicked, app))
-    app.btn3.bind('<Button-1>', partial(btn3_clicked, app))
+    app.btn3.bind('<Button-1>', partial(btn3_clicked, app, serv))
