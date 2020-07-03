@@ -2,6 +2,28 @@ import tkinter as tk
 import cv2
 from PIL import Image
 from PIL import ImageTk
+import os
+
+def make_image_file_list():
+    folder_name = "../images"
+    list = os.listdir(folder_name)
+    i = 0
+
+    while True:
+        if (i >= len(list)):
+            break
+        strs = list[i].split(".")
+        if len(strs)<2:
+            del list[i]
+            continue
+        if (strs[1] == "jpg" or strs[1] == "png" or strs[1] == "gif" or strs[1] == "JPG"):
+            list[i] = folder_name+"/"+list[i]
+            i += 1
+        else:
+            del list[i]
+
+    return list
+
 
 class AppWindow(tk.Frame):#frame
     def __init__(self, master=None, size=None, path=None):
@@ -13,6 +35,11 @@ class AppWindow(tk.Frame):#frame
         self.sub_fr = None#frame
         self.src = None #tk의 label에 출력할 영상
         self.frame = None #tk의 영상을 출력할 레이블
+
+        self.image_list = make_image_file_list()
+
+        self.image_idx = 0
+
         self.create_widgets(path)
 
     def make_img(self, path):
