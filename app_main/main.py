@@ -4,7 +4,7 @@ import app_main.make_widgets as mkw
 import app_main.service as s
 
 def main():
-    img_path = 'img/a.jpg'
+    img_path = 'images/a.jpg'
     root = tk.Tk()
     app = win.AppWindow(root, '650x500+100+100', img_path)
     mkw.make(app)
