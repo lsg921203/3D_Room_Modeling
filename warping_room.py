@@ -37,6 +37,22 @@ class Warping_room:
         self.dstp4s.append(Points4(450, 450, 1050, 450, 1050, 1050, 450, 1050))
         self.file_lists.append('images/room5.jpg')
 
+        self.srcp4s.append(Points4(311, 299, 727, 243, 1059, 396, 465, 553))
+        self.dstp4s.append(Points4(450, 450, 1050, 450, 1050, 1050, 450, 1050))
+        self.file_lists.append('images/soccer1.JPG')
+
+        self.srcp4s.append(Points4(66, 272, 453, 244, 812, 289, 268, 383))
+        self.dstp4s.append(Points4(450, 450, 1050, 450, 1050, 1050, 450, 1050))
+        self.file_lists.append('images/crosswalk1.jpg')
+
+        self.srcp4s.append(Points4(241, 109, 801, 262, 370, 426, -65, 165))
+        self.dstp4s.append(Points4(250, 250, 1250, 250, 1250, 1250, 250, 1250))
+        self.file_lists.append('images/crosswalk2.png')
+
+        self.srcp4s.append(Points4(66, 263, 550, 150, 1097, 426, 222, 867))
+        self.dstp4s.append(Points4(250, 250, 1250, 250, 1250, 1250, 250, 1250))
+        self.file_lists.append('images/crosswalk3.jpg')
+
     def warping_img(self,filename):
         self.i = 0
         self.file_name = filename

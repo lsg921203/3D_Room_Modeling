@@ -7,9 +7,9 @@ import numpy as np
 import cv2
 import math
 
-def main(dbug):
+def main(dbug, file_name):
 
-    file_name = "images/room1.jpg"
+
     od = object_detection()
     od.detect(file_name)
 
@@ -40,7 +40,12 @@ def main(dbug):
 
     for i in range(len(points2)):
 
-        if names[i] == "bed" or names[i] == "sofa" or names[i] == "chair":   #or names[i] == "tvmonitor"
+        if names[i] == "bed" or \
+                names[i] == "sofa" or \
+                names[i] == "chair"or \
+                names[i] == "tvmonitor" or \
+                names[i] == "person" or \
+                names[i] == "car":   #
             centerX = (int)((points2[i].x3 + points2[i].x4)/2)
             centerY = (int)((points2[i].y3 + points2[i].y4)/2)
             centerX = (centerX)
@@ -66,4 +71,4 @@ def main(dbug):
     cv2.destroyAllWindows()
 
 
-main(True)
+main(True,"images/crosswalk3.jpg")

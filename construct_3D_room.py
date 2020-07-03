@@ -31,7 +31,15 @@ class const_3D_room:
         elif name == "tvmonitor":
             file_name = 'stl_files/TV.stl'
             original_size_x = 120
-            original_size_y = 0
+            original_size_y = 10
+        elif name == "person":
+            file_name = 'stl_files/cookie.stl'
+            original_size_x = 60
+            original_size_y = 30
+        elif name == "car":
+            file_name = 'stl_files/car.stl'
+            original_size_x = 60
+            original_size_y = 30
         else:
             return False
 
