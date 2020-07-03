@@ -13,6 +13,11 @@ def main(dbug):
     od = object_detection()
     od.detect(file_name)
 
+    if dbug:
+        image = cv2.imread(file_name)
+        #image = cv2.resize(image, dsize=None, fx=0.5, fy=0.5)
+        cv2.imshow("Original_image", image)
+        #cv2.waitKey(0)
     warping = Warping_room()
     image = warping.warping_img(file_name)
 
@@ -26,14 +31,15 @@ def main(dbug):
     points2 = warping.warping_points(points)
     #points2 = points
 
+
     if dbug:
         for i in range(len(points2)):
-            #print(names[i])
+
             if names[i] == "bed" or names[i] == "sofa" or names[i] == "chair" :#or names[i] == "tvmonitor"
                 cv2.line(image, (points2[i].x3,points2[i].y3),(points2[i].x4,points2[i].y4),(255,255,0),5)
 
     for i in range(len(points2)):
-        #print(names[i])
+
         if names[i] == "bed" or names[i] == "sofa" or names[i] == "chair":   #or names[i] == "tvmonitor"
             centerX = (int)((points2[i].x3 + points2[i].x4)/2)
             centerY = (int)((points2[i].y3 + points2[i].y4)/2)
@@ -50,10 +56,14 @@ def main(dbug):
             if dbug:
                 print(names[i],":", centerX,",", centerY)
                 cv2.line(image, (points2[i].x3, points2[i].y3), (points2[i].x4, points2[i].y4), (255, 255, 0), 5)
-    model_house.show()
+
     if dbug:
         image = cv2.resize(image, dsize=None, fx=0.5, fy=0.5)
-        cv2.imshow("image", image)
-        cv2.waitKey(0)
+        cv2.imshow("converted image", image)
+        #cv2.waitKey(0)
+
+    model_house.show()
+    cv2.destroyAllWindows()
+
 
 main(True)

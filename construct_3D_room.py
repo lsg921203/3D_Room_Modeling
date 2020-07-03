@@ -9,7 +9,7 @@ class const_3D_room:
         self.figure = pyplot.figure()
         self.axes = mplot3d.Axes3D(self.figure)
 
-        self.your_mesh = None#mesh.Mesh.from_file(file_name)
+        self.your_mesh = None
         self.meshes = []
 
     def add_object(self,name,size,x,y,angle):
@@ -47,7 +47,6 @@ class const_3D_room:
 
         self.your_mesh.x += x
         self.your_mesh.y += y
-        print(x,",",y)
 
         self.axes.add_collection3d(mplot3d.art3d.Poly3DCollection(self.your_mesh.vectors))
 
@@ -56,9 +55,8 @@ class const_3D_room:
 
 
     def show(self):
-        #scale = self.your_mesh.points.flatten()
+
         scale = np.concatenate([m.points for m in self.meshes]).flatten('K')
-        print(type(scale))
         self.axes.auto_scale_xyz(scale, scale, scale)
         pyplot.show()
 
