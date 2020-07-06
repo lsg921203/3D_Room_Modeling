@@ -5,8 +5,6 @@ import os
 from app_main.points4 import Points4
 
 
-# 아래있는거 전부 클래스로 변환처리
-
 class object_detection:
     def __init__(self):
 
@@ -38,8 +36,6 @@ class object_detection:
         start = time.time()
         self.layerOutputs = self.net.forward(self.ln)  # 학습내용을 기반으로 이미지 판단
         end = time.time()
-
-        ### 여기까지 진행
 
         print("[INFO] YOLO took {:.6f} seconds".format(end - start))
 
@@ -79,12 +75,6 @@ class object_detection:
                                                x4=x,
                                                y4=y + int(height)))
 
-                    # use the center (x, y)-coordinates to derive the top and
-                    # and left corner of the bounding box
-
-
-                    # update our list of bounding box coordinates, confidences,
-                    # and class IDs
                     self.boxes.append([x, y, int(width), int(height)])
                     self.confidences.append(float(confidence))
                     self.classIDs.append(classID)
@@ -105,14 +95,7 @@ class object_detection:
                 text = "{}: {:.4f}".format(self.LABELS[self.classIDs[i]], self.confidences[i])
                 cv2.putText(self.image, text, (x, y + h - 5), cv2.FONT_HERSHEY_SIMPLEX,
                             0.5, color, 2)
-        # p1 = Points4(232, 214, 538, 214, 736, 394, 44, 393)
-        # p2 = Points4(210, 210, 800, 210, 800, 800, 210, 800)
 
-        # pers = perspective(p1, p2)
-        # self.image = pers.warpImage(self.image)
-        # show the output image
-        #cv2.imshow("Image", self.image)
-        #cv2.waitKey(0)
 
     def get_object_info(self):
         # 객체의 위치정보, 이름 반환
@@ -123,5 +106,4 @@ class object_detection:
         return self.points, object_names
 
 
-#od = object_detection()
-#od.detect("images/room1.jpg")
+

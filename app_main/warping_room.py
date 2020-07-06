@@ -6,7 +6,7 @@ class Warping_room:
         self.srcp4s = []
         self.dstp4s = []
         self.file_lists = []
-        #self.M = np.array()
+
         self.i = 0
         self.file_name = ""
         self.pers = None

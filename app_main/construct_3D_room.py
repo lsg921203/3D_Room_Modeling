@@ -68,10 +68,4 @@ class const_3D_room:
         self.axes.auto_scale_xyz(scale, scale, scale)
         pyplot.show()
 
-        #pyplot.close()
 
-
-#test = const_3D_room()
-#test.add_object("bed",40,10,60,0)
-#test.add_object("bed",60,10,-60,0)
-#test.show()

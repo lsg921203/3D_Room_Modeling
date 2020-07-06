@@ -17,7 +17,7 @@ class perspective:
         self.pst2 = np.float32([p1, p2, p3, p4])
 
         self.M = cv2.getPerspectiveTransform(self.pst1, self.pst2)
-        #print(self.M)
+
 
     def warpImage(self,img):
         res = cv2.warpPerspective(img, self.M, (1500, 1500))
@@ -63,18 +63,3 @@ class perspective:
 
         return res
 
-'''
-p1 = Points4(232,214,538,214,736,394,44,393)
-p2 = Points4(210,210,800,210,800,800,210,800)
-
-pers = perspective(p1,p2)
-
-P = Points4(300,300,
-            400,300,
-            400,400,
-            300,400)
-
-PP = pers.warpPoints4(P)
-
-PP.printPoints()
-'''

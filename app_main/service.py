@@ -1,9 +1,7 @@
 #이 함수 안에 기능을 구현하시오
 #기능구현 클래스를 따로 만들고 그 객체를 생성하여 실행하는 코드를 넣으면 ok
 from app_main.object_detect_yolo import object_detection
-from app_main.perspectiveTransform import perspective
 from app_main.warping_room import Warping_room
-from app_main.points4 import Points4
 from app_main.construct_3D_room import const_3D_room
 import cv2
 import math
@@ -16,11 +14,6 @@ class service:
         od = object_detection()
         od.detect(file_name)
 
-        #if dbug:
-            #image = cv2.imread(file_name)
-            # image = cv2.resize(image, dsize=None, fx=0.5, fy=0.5)
-            #cv2.imshow("Original_image", image)
-            # cv2.waitKey(0)
         warping = Warping_room()
         image = warping.warping_img(file_name)
 
@@ -59,7 +52,6 @@ class service:
 
         model_house.show()
 
-        #cv2.destroyAllWindows()
         pyplot.close()
 
 
