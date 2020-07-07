@@ -5,6 +5,8 @@ import math
 import numpy as np
 
 class const_3D_room:
+    #방안에 3D 모형을 배치하고 보여주는 클래스
+
     def __init__(self):
         self.figure = pyplot.figure()
         self.axes = mplot3d.Axes3D(self.figure)
@@ -13,6 +15,7 @@ class const_3D_room:
         self.meshes = []
 
     def add_object(self,name,size,x,y,angle):
+        # 추가될 객체의 종류를 파악하여 해당 종류의 3D 객체 파일을 염
         file_name=""
         original_size_x = 0
         original_size_y = 0
@@ -43,6 +46,7 @@ class const_3D_room:
         else:
             return False
 
+        # 객체를 해당위치에 배치후 3D 객체 리스트와 전체 모델에 추가
         rate = 1.5 #size / original_size_x
 
         self.your_mesh = mesh.Mesh.from_file(file_name)
@@ -63,7 +67,7 @@ class const_3D_room:
 
 
     def show(self):
-
+        # 지금까지 쌓인 객체들을 모두 보여줌
         scale = np.concatenate([m.points for m in self.meshes]).flatten('K')
         self.axes.auto_scale_xyz(scale, scale, scale)
         pyplot.show()
